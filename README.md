@@ -6,9 +6,12 @@ Docker image for building [Ionic](https://ionicframework.com/) apps with [Cordov
 
 ### Build image
 
-Build from [GitHub](https://github.com/robingenz/docker-ionic-cordova):  
-```
-docker build -t robingenz/ionic-cordova github.com/robingenz/docker-ionic-cordova
+Build from [GitHub](https://github.com/soiqualang/docker-ionic-cordova):  
+```bash
+docker build -t soiqualang/ionic-cordova github.com/soiqualang/docker-ionic-cordova
+
+# or
+docker build -t ionic_env .
 ```
 
 Available build arguments:
@@ -23,8 +26,16 @@ Available build arguments:
 ### Run image
 
 Run the docker image:  
+```bash
+docker run -it soiqualang/ionic-cordova
 ```
-docker run -it robingenz/ionic-cordova
+
+> test
+
+```bash
+docker run --name ionic_env -it --net=host -v D:/sync/websvr/ionic:/workdir ionic_env bash
+
+docker run --name ionic_env -it -p 8100:8100 -v D:/sync/websvr/ionic:/workdir ionic_env bash
 ```
 
 ## CI Configuration
@@ -34,7 +45,7 @@ docker run -it robingenz/ionic-cordova
 Here is a sample `.gitlab-ci.yml` file:
 
 ```yml
-image: robingenz/ionic-cordova
+image: soiqualang/ionic-cordova
 
 stages:
     - build
@@ -55,4 +66,4 @@ build_android:
 
 ## Questions / Issues
 
-If you got any questions or problems using the image, please visit my [GitHub Repository](https://github.com/robingenz/docker-ionic-cordova) and write an issue.
+If you got any questions or problems using the image, please visit my [GitHub Repository](https://github.com/soiqualang/docker-ionic-cordova) and write an issue.

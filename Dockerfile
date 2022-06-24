@@ -37,4 +37,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     && apt-get clean -y \
     && rm -rf /tmp/sdk-tools-linux-${ANDROID_SDK_VERSION}.zip
 
+RUN npm install n -g
+RUN n stable
+
+EXPOSE 8100
+EXPOSE 35729
+
 WORKDIR /workdir

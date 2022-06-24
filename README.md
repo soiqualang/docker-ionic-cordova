@@ -33,9 +33,18 @@ docker run -it soiqualang/ionic-cordova
 > test
 
 ```bash
+# Run
 docker run --name ionic_env -it --net=host -v D:/sync/websvr/ionic:/workdir ionic_env bash
 
 docker run --name ionic_env -it -p 8100:8100 -v D:/sync/websvr/ionic:/workdir ionic_env bash
+
+# Access container
+docker exec -it ionic_env /bin/bash
+
+# Make new app
+# https://ionicframework.com/docs/cli/commands/start
+
+ionic start myApp tabs --cordova
 ```
 
 ## CI Configuration
